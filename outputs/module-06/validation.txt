@@ -1,0 +1,14 @@
+Module 06 validation
+PASS: all 10 displayed R blocks executed successfully
+PASS: 22 actual R PNG figures generated
+PASS: mosaic has the same grid as the source; maximum value difference exactly zero
+PASS: input raster and vector CRS match
+PASS: mask reduces retained values from 788 to 604 in the crop
+PASS: original slope range 0.01418809 to 7.230566 degrees
+PASS: slope and aspect supplied to shade are BOTH radians
+PASS: output terrain indices and lighting scenarios use documented units
+PASS: boxplot colours correspond to alphabetically ordered group names
+PASS: exported slope reopened with matching grid; maximum value difference 2.345828e-07 degrees
+PASS: official help URLs returned HTTP 200; mean and table-aggregate help also retrieved
+Visual checks: 22-figure overview, legends, boxplot and map framing inspected
+Full browser rendering has not been verified in this environment.
