@@ -1,0 +1,11 @@
+Module 03 verification
+PASS: all 12 displayed R blocks executed in one shared session
+PASS: 17 figure PNGs generated
+PASS: displayed code matches the source blocks
+PASS: CRS assignment leaves numeric bounds unchanged
+PASS: one buffer per input centre
+PASS: exported GeoPackage reopened with EPSG:2154
+PASS: all 34 function documentation links returned HTTP 200
+PASS: local page references resolve
+Visual checks: representative global, distortion-diagnostic and local projection figures inspected
+Browser verification: full-page browser rendering not verified in this environment
