@@ -26,3 +26,7 @@ Added teaching checks include explicit native-band resolution, source radiometri
 
 Department contours are IGN-derived Contours administratifs 2026, generalized 100 m, ODbL:
 https://www.data.gouv.fr/datasets/contours-administratifs
+
+## Spectral reference diagram
+The NASA Landsat comparison diagram embedded in page 2 of the supplied Rasters 2 chapter is reproduced unchanged as assets/reference/sentinel2-landsat-spectral-bands.jpg (1800 × 727 pixels). It is a sourced reference illustration, separate from the 27 R-generated results. Attribution is retained on the page, with a link to the Copernicus documentation reproducing and explaining this diagram:
+https://s2.pages.eopf.copernicus.eu/msi/s2msi/1.1.0/context.html#msi-spectral-bands
