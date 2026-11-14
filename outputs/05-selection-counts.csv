@@ -1,0 +1,10 @@
+"relation","polygons","lines","points"
+"intersects",7,303,93
+"touches",0,0,0
+"crosses",0,56,0
+"overlaps",6,0,0
+"within",1,247,93
+"contains",0,0,0
+"covers",0,0,0
+"coveredby",1,247,93
+"disjoint",10,501,153

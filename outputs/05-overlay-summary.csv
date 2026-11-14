@@ -1,0 +1,7 @@
+"operation","features","fields"
+"Erase",65,"TYPE, DESCR"
+"Intersect",52,"TYPE, DESCR, code, nom"
+"Crop",39,"TYPE, DESCR"
+"Union",117,"TYPE, DESCR, code, nom"
+"Cover",68,"TYPE, DESCR, code, nom"
+"Symmetric_difference",65,"TYPE, DESCR"
