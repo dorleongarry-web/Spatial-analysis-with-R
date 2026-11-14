@@ -1,0 +1,15 @@
+library(terra)
+library(stringr)
+sentinel_files <- list.files("data/rasters/sentinel2-35-56", pattern = "_B[0-9A]{2}\\.tif$", full.names = TRUE)
+band_names <- str_extract(basename(sentinel_files), "B[0-9A]{2}")
+expected <- c("B01", "B02", "B03", "B04", "B05", "B06", "B07", "B11", "B12", "B8A")
+stopifnot(length(band_names) == 10, setequal(band_names, expected), !anyDuplicated(band_names))
+sentinel_files <- sentinel_files[match(expected, band_names)]
+tmp <- lapply(sentinel_files, rast)
+stopifnot(all(vapply(tmp, function(x) compareGeom(x, tmp[[1]], stopOnError = FALSE), logical(1))))
+sentinel <- rast(tmp)
+names(sentinel) <- expected
+print(names(sentinel))
+print(sentinel)
+print(read.csv("data/MODULE_07_BANDS.csv"))
+plot(sentinel$B01, col = gray.colors(100, 0, 1), main = "B01: prepared surface reflectance")
