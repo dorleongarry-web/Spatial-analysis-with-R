@@ -1,0 +1,6 @@
+elev_v <- variogram(Elevation ~ 1, elevation, cutoff = 2500, width = 250)
+elev_fit <- fit.variogram(elev_v, vgm(100, "Sph", 1500, 1))
+print(elev_fit)
+print(plot(elev_v, elev_fit, main = "Elevation: spherical variogram", xlab = "Distance (m)", ylab = "Semivariance (m²)"))
+elev_dir <- variogram(Elevation ~ 1, elevation, alpha = c(0, 45, 90, 135), cutoff = 2500, width = 250)
+print(plot(elev_dir, main = "Elevation: directional variograms", xlab = "Distance (m)", ylab = "Semivariance (m²)"))

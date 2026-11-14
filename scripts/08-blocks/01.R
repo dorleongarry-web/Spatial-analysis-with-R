@@ -1,0 +1,16 @@
+library(sf)
+library(terra)
+library(gstat)
+soil <- st_read("data/vectors/module-08/naizin.gpkg", layer = "soil", quiet = TRUE)
+basin <- st_read("data/vectors/module-08/naizin.gpkg", layer = "catchment", quiet = TRUE)
+fields <- st_read("data/vectors/module-08/naizin.gpkg", layer = "fields", quiet = TRUE)
+elevation <- st_read("data/vectors/module-08/naizin.gpkg", layer = "elevation", quiet = TRUE)
+soil$SOC <- soil$Carbon__g_
+xy <- st_coordinates(soil)
+stopifnot(st_crs(soil)$epsg == 2154, all(is.finite(soil$SOC)),
+          !anyDuplicated(xy), nrow(soil) == 198)
+print(summary(soil$SOC))
+print(data.frame(points = nrow(soil), area_ha = as.numeric(st_area(basin))/10000))
+plot(st_geometry(basin), col = "#eef2ed", main = "Naizin: soil sampling, 2013", axes = TRUE)
+plot(st_geometry(soil), add = TRUE, pch = 21, bg = "#277d82", cex = .8)
+legend("topright", "198 topsoil observations", pch = 21, pt.bg = "#277d82", bty = "n")

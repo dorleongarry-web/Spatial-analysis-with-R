@@ -1,0 +1,7 @@
+par(mfrow = c(1, 2), mar = c(4, 4, 3, 1))
+hist(soil$SOC, breaks = 25, col = "#55968d", main = "SOC: original units", xlab = "SOC (g C/kg)")
+hist(log(soil$SOC), breaks = 20, col = "#d3a45a", main = "SOC: log distribution", xlab = "log(SOC)")
+par(mfrow = c(1, 1))
+boxplot(soil$SOC, horizontal = TRUE, col = "#55968d", xlab = "SOC (g C/kg)", main = "SOC: all observations retained")
+legend("topright", c("Box: 25th–75th percentiles", "Line: median", "Circles: beyond 1.5 IQR whiskers"), bty = "n", cex = .85)
+print(soil[order(soil$SOC, decreasing = TRUE)[1:5], c("ID_MOSAIC", "SOC")])

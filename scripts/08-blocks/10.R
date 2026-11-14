@@ -1,0 +1,15 @@
+par(mfrow = c(1, 3), mar = c(3, 3, 3, 2))
+plot(ok, col = "#eeeeee", legend = FALSE, main = "Observed SOC (g C/kg)")
+lines(vect(basin))
+point_colours <- pal[findInterval(soil$SOC, seq(limits[1], limits[2], length.out = 101), all.inside = TRUE)]
+points(xy, pch = 21, bg = point_colours, col = "#555555", cex = .8)
+legend("bottomright", legend = c("20", "100", "200"), pch = 21,
+       pt.bg = pal[c(3, 47, 98)], title = "g C/kg", bty = "n", cex = .65)
+sbar(1000, type = "bar", below = "1 km", labels = c("", "", ""))
+plot(ok, col = pal, range = limits, main = "Predicted SOC (g C/kg)")
+lines(vect(basin))
+sbar(1000, type = "bar", below = "1 km", labels = c("", "", ""))
+plot(se, col = hcl.colors(100, "OrRd", rev = TRUE), main = "Kriging SE (g C/kg)")
+lines(vect(basin))
+sbar(1000, type = "bar", below = "1 km", labels = c("", "", ""))
+par(mfrow = c(1, 1))
