@@ -1,20 +1,11 @@
-Module 05 verification
-PASS: all 14 R blocks executed successfully
-PASS: 43 real R figure PNGs generated
-PASS: 39 tabs reference matching code and figures with unique IDs
-PASS: displayed full code matches the source blocks
-PASS: input CRS and polygon-validity checks
-PASS: extracted point IDs are unique and explicitly matched to the source
-PASS: 153 points retained after both attribute joins; geometry arrays unchanged
-PASS: exported GeoPackage reopened with matching CRS and 153 features
-PASS: all 60 external function-help links returned HTTP 200
-PASS: one local plotting helper documented with a link to its definition
-Visual checks: data maps, dissolve, cover, spatial predicates and attribute joins inspected
-Full-page browser rendering has not been verified in this environment
-
-Location map supplement:
-PASS: supplementary R script executed and static map visually inspected
-PASS: default departments 22/35/56; course switch 07/43/48
-PASS: mocked Leaflet integration checks popups, legend, reset and three attributed basemaps
-PASS: JavaScript syntax check
-Live background tiles and full browser layout remain unverified
+Module 05 — rebuilt Brittany edition
+PASS: 8 displayed blocks executed successfully using terra 1.9.50
+PASS: department geometries repaired and validity checked
+PASS: 13 R figures generated; map legends inspected
+PASS: 90 exercise points; 51 matches and 39 nonmatches
+PASS: joined point count and coordinates unchanged
+PASS: exported GeoPackage reopened with matching CRS and feature count
+PASS: six overlay figures and accessible tab relationships
+PASS: official function-help URLs checked (HTTP 200); new add_legend link reused from earlier verified module
+Full browser rendering and live map tiles are not verified.
+GitHub deployment failure remains to be diagnosed from Actions logs.
