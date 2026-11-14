@@ -1,0 +1,14 @@
+Module 04 verification
+PASS: 12 R blocks executed successfully
+PASS: live SHOM and IGN capabilities downloaded and parsed
+PASS: exact layer names, PNG format, inherited EPSG:2154 and image-size limits checked
+PASS: PNG signatures checked before image imports
+PASS: 7 actual R figures generated, including LiDAR DTM, DSM and height views
+PASS: exported GeoTIFF reopened; CRS, pixel size and dimensions checked
+PASS: original displayed code matches the 12 source blocks
+PASS: 57 external function-help links returned HTTP 200; 2 lesson helpers link to their definitions
+PASS: six tab panels reference the matching source images and code
+PASS: local file references resolve
+Selected SHOM and LiDAR figures visually inspected
+Full-page browser rendering has not been verified here
+BRGM endpoints returned a rejection from this environment; no BRGM map result is included
