@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Download course data and configure an RStudio project with working relative paths."><title>Getting Started | Geospatial Analysis with R</title><link rel="stylesheet" href="../assets/style.css"><style>.article h2{scroll-margin-top:90px}.article pre{white-space:pre;overflow-x:auto}.setup-check{padding:16px 20px;border-radius:12px;background:#f0f8f7;border:1px solid #cee5e2}.setup-check a{font-weight:700}.article .warning{background:#fff7e6;border-left:4px solid #d5a138;padding:13px 18px;margin:18px 0}</style></head>
+<body><header><nav class="nav"><a class="brand" href="../index.html">◈ &nbsp; Geospatial Analysis with R</a><div class="navlinks"><a href="../index.html#modules">Modules</a><a href="../index.html#about">About</a><a href="../index.html#resources">Resources</a></div></nav></header>
+<section class="lesson-header"><div class="container"><span class="eyebrow">Before Module 01 · Practical preparation</span><h1>Getting Started with RStudio and Course Data</h1><p>Set up your project once and use reliable relative paths in every exercise.</p></div></section>
+<div class="container lesson-grid"><aside class="sidebar"><strong>Course navigation</strong><a class="active" href="00-getting-started.html">Start here · RStudio setup</a><a href="01-introduction.html">01 · Introduction</a><a href="02-basics.html">02 · Basics</a><hr><strong>On this page</strong><a href="#download">Download</a><a href="#extract">Extract</a><a href="#open">Open RStudio project</a><a href="#check">Verify paths</a><a href="#troubleshoot">Troubleshooting</a></aside>
+<main class="article"><div class="module-meta"><span>Required before practical exercises</span><span>Windows / macOS / Linux</span><span>Tools: R · RStudio · terra</span></div>
+<div class="setup-check"><strong>Start here before running any code.</strong> Spatial datasets must be stored on your computer. Uploading datasets to GitHub does not automatically make them available in RStudio. Complete these steps to avoid errors such as <code>[vect] file does not exist</code>.</div>
+<h2 id="download">1 · Download the complete course repository</h2><p>Open the <a href="https://github.com/dorleongarry-web/Spatial-analysis-with-R" target="_blank" rel="noopener">course repository on GitHub</a>. Choose <strong>Code → Download ZIP</strong>. Download the complete repository, not a single R script. The ZIP includes the vector datasets for the first exercises and a small preview raster; larger satellite and terrain datasets may be distributed separately.</p>
+<h2 id="extract">2 · Extract the ZIP and identify the project root</h2><p>Extract the ZIP into a folder you can access (for example, <code>Documents/Spatial-analysis-with-R-main</code>). Open it in your file manager and locate the folder containing <strong>all three folders</strong>: <code>data/</code>, <code>scripts/</code>, and <code>lessons/</code>.</p>
+<pre><code>Spatial-analysis-with-R-main/
+├── Spatial-analysis-with-R.Rproj  &lt;-- open this file
+├── data/
+│   ├── vectors/
+│   │   └── ne_50m_admin_0_countries.gpkg
+│   └── rasters/
+│       └── GRAY_50M_SR_OB_preview.tif
+├── scripts/
+├── lessons/
+└── index.html</code></pre>
+<div class="warning"><strong>Common mistake:</strong> extraction can produce nested folders: <code>Spatial-analysis-with-R-main/Spatial-analysis-with-R-main/</code>. Open the <em>inner folder</em> if that is where the <code>data/</code> directory actually exists. Do not assume the outer folder is the correct one.</div>
+<h2 id="open">3 · Open the RStudio project</h2><p>Double-click <code>Spatial-analysis-with-R.Rproj</code>, or open RStudio and choose <strong>File → Open Project</strong> and select this file. The working directory should now be the repository root. Avoid hard-coded absolute paths and avoid using <code>setwd()</code> inside teaching scripts.</p>
+<p>If the <code>.Rproj</code> file is missing from an older download, open RStudio and choose <strong>File → New Project → Existing Directory</strong>, then select the folder containing <code>data/</code>.</p>
+<h2 id="check">4 · Check your project before importing data</h2><p>In the RStudio Console, run the following. The first line checks the current location; the second checks the main GeoPackage used in Module 2.</p>
+<pre><code>getwd()
+list.files()
+file.exists("data/vectors/ne_50m_admin_0_countries.gpkg")</code></pre>
+<p>The final command must return <code>TRUE</code>. For a more complete check, run:</p>
+<pre><code>source("scripts/00-check-project.R")</code></pre>
+<p><a class="download-link" href="../scripts/00-check-project.R" download>↓ Download the project-check script</a></p>
+<p>When the checks pass, try importing and mapping the data:</p>
+<pre><code>library(terra)
+countries &lt;- vect("data/vectors/ne_50m_admin_0_countries.gpkg")
+plot(countries, col = "beige", main = "Natural Earth - countries")</code></pre>
+<h2 id="troubleshoot">5 · Troubleshooting</h2>
+<p><strong>The check returns FALSE:</strong> run <code>list.files()</code>. If <code>data</code> is absent, you opened the wrong folder or downloaded an incomplete set of files. Locate the folder with <code>data/vectors/</code>, then open its RStudio project.</p>
+<p><strong>The data folder exists but the file is missing:</strong> run <code>list.files("data/vectors")</code>. Download the full repository again if the original course GeoPackages were omitted.</p>
+<p><strong>The first import fails:</strong> do not continue to <code>plot(countries)</code>, <code>print(countries)</code>, or <code>crs(countries)</code> until <code>countries &lt;- vect(...)</code> succeeds.</p>
+<div class="lesson-next"><a href="../index.html#modules">← All modules</a><a href="01-introduction.html">Continue to Module 1 →</a></div>
+</main></div><footer><div class="container">Geospatial Analysis with R · Teaching resource · <a href="../index.html#resources">Resources</a></div></footer></body></html>
