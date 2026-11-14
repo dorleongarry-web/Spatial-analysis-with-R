@@ -1,0 +1,7 @@
+class       : SpatRaster
+size        : 1137, 847, 4  (nrow, ncol, nlyr)
+resolution  : 1, 1  (x, y)
+extent      : 0, 847, 0, 1137  (xmin, xmax, ymin, ymax)
+coord. ref. : 
+source      : shom-litto3d.png
+names       : shom-litto3d_1, shom-litto3d_2, shom-litto3d_3, shom-litto3d_4

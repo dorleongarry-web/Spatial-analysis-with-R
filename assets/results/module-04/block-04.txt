@@ -1,0 +1,7 @@
+     edge   initial aligned
+xmin xmin  890837.8  890836
+xmax xmax  892528.2  892530
+ymin ymin 6242931.4 6242930
+ymax ymax 6245202.3 6245204
+ width height 
+   847   1137 

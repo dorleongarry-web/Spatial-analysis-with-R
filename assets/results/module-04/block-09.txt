@@ -1,0 +1,4 @@
+                     width                     height 
+                       847                       1143 
+requested_metres_per_pixel 
+                        10 
