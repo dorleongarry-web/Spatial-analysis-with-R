@@ -1,0 +1,6 @@
+before  after 
+    80      3 
+         TYPE DESCR agg_n
+1    Magmatic    NA    18
+2 Metamorphic    NA    15
+3 Sedimentary    NA    47

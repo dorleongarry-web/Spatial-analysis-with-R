@@ -1,0 +1,10 @@
+  id.y        TYPE               DESCR
+1    1 Sedimentary           Sandstone
+2    2 Metamorphic              Schist
+3    3 Sedimentary Limestone and marls
+4    4 Sedimentary Limestone and marls
+5    5 Metamorphic              Schist
+6    6 Metamorphic              Schist
+
+   Magmatic Metamorphic Sedimentary 
+         35          74          44 

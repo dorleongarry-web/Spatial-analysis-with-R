@@ -1,0 +1,10 @@
+  id.y code     nom
+1    1   07 Ardèche
+2    2 <NA>    <NA>
+3    3 <NA>    <NA>
+4    4   48  Lozère
+5    5   48  Lozère
+6    6   48  Lozère
+
+    Ardèche Haute-Loire      Lozère        <NA> 
+         21          45          27          60 

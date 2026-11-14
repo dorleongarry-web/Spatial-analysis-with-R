@@ -1,0 +1,40 @@
+        layer features
+1 departments        3
+2   lithology       80
+3  structures      501
+4       mines      153
+         TYPE               DESCR
+1 Sedimentary           Sandstone
+2 Sedimentary           Sandstone
+3 Sedimentary                Clay
+4    Magmatic             Granite
+5    Magmatic Basalt and rhyolith
+6 Sedimentary                Clay
+  CODE_TRAIT TYPE_TRAIT CODE_GEOL                  NATURE IMPORTANCE
+1        410     faille       410 indifférencié (observé) importante
+2        410     faille       411  normale ou détachement    majeure
+3        410     faille       410 indifférencié (observé)    majeure
+4        410     faille       410 indifférencié (observé)    majeure
+5        410     faille       413            décrochement    majeure
+6        410     faille       410 indifférencié (observé) importante
+           SENS           NOM COMMENT TERRE_MER CODE_LEG
+1 non renseigné non renseigné    <NA>         T       11
+2 non renseigné non renseigné    <NA>         T       20
+3 non renseigné non renseigné    <NA>         T       11
+4 non renseigné non renseigné    <NA>         T       11
+5 non renseigné non renseigné    <NA>         T       24
+6 non renseigné non renseigné    <NA>         T       11
+  gid id_unique x_l2et  y_l2et substance c_group taille    nom_site
+1  93     134-1 742723 1931555      Coal       7      2        Alès
+2 127    1372-1 733406 1940653        Pb       2      0 La Rouvière
+3 129    1374-1 794167 1932218      Phos       8      0     St Paul
+4 140    1384-1 700887 1931618       Brt      10      0     Malbosc
+5 141    1385-1 726103 1937644        Cu       2      0   Le Pouget
+6 142    1386-1 706246 1927119        Pb       2      1 Ramponenche
+  id_exploitation id_site ordre point_id
+1             134       1     1        1
+2            1372       1     1        2
+3            1374       1     1        3
+4            1384       1     1        4
+5            1385       1     1        5
+6            1386       1     1        6

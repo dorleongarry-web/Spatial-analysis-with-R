@@ -1,0 +1,10 @@
+    relation selected
+1 intersects        7
+2    touches        0
+3    crosses        0
+4   overlaps        6
+5     within        1
+6   contains        0
+7     covers        0
+8  coveredby        1
+9   disjoint       10

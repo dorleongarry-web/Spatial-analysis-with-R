@@ -1,0 +1,2 @@
+   original_points      joined_points missing_department  missing_lithology 
+               153                153                 60                  0 

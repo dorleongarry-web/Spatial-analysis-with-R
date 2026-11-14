@@ -1,0 +1,10 @@
+  code         nom
+1   07     Ardèche
+2   43 Haute-Loire
+3   48      Lozère
+                                name authority code
+1 ETRS89-FRA [RGF93 v1] / Lambert-93      EPSG 2154
+                                                                                           area
+1 France - onshore and offshore, mainland and Corsica (France métropolitaine including Corsica)
+                      extent
+1 -9.86, 10.38, 41.15, 51.56

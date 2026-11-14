@@ -1,0 +1,2 @@
+disjoint_from_any       outside_all 
+              153                60 

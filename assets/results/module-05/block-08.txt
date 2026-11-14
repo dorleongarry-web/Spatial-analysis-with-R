@@ -1,0 +1,10 @@
+    relation selected
+1 intersects      303
+2    touches        0
+3    crosses       56
+4   overlaps        0
+5     within      247
+6   contains        0
+7     covers        0
+8  coveredby      247
+9   disjoint      501

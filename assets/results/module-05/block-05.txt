@@ -1,0 +1,49 @@
+         TYPE               DESCR
+1 Sedimentary           Sandstone
+2 Sedimentary           Sandstone
+3 Sedimentary                Clay
+4    Magmatic             Granite
+5    Magmatic Basalt and rhyolith
+6    Magmatic Basalt and rhyolith
+         TYPE               DESCR code         nom
+1    Magmatic Basalt and rhyolith   48      Lozère
+2 Sedimentary                Clay   48      Lozère
+3    Magmatic Basalt and rhyolith   48      Lozère
+4    Magmatic             Granite   48      Lozère
+5    Magmatic             Granite   43 Haute-Loire
+6 Metamorphic              Gneiss   48      Lozère
+         TYPE               DESCR
+1    Magmatic Basalt and rhyolith
+2 Sedimentary                Clay
+3    Magmatic Basalt and rhyolith
+4    Magmatic             Granite
+5 Metamorphic              Gneiss
+6    Magmatic Basalt and rhyolith
+         TYPE               DESCR code  nom
+1 Sedimentary           Sandstone <NA> <NA>
+2 Sedimentary           Sandstone <NA> <NA>
+3 Sedimentary                Clay <NA> <NA>
+4    Magmatic             Granite <NA> <NA>
+5    Magmatic Basalt and rhyolith <NA> <NA>
+6    Magmatic Basalt and rhyolith <NA> <NA>
+         TYPE               DESCR code  nom
+1 Sedimentary           Sandstone <NA> <NA>
+2 Sedimentary           Sandstone <NA> <NA>
+3 Sedimentary                Clay <NA> <NA>
+4    Magmatic             Granite <NA> <NA>
+5    Magmatic Basalt and rhyolith <NA> <NA>
+6    Magmatic Basalt and rhyolith <NA> <NA>
+         TYPE               DESCR
+1 Sedimentary           Sandstone
+2 Sedimentary           Sandstone
+3 Sedimentary                Clay
+4    Magmatic             Granite
+5    Magmatic Basalt and rhyolith
+6    Magmatic Basalt and rhyolith
+                                operation features                 fields
+Erase                               Erase       65            TYPE, DESCR
+Intersect                       Intersect       52 TYPE, DESCR, code, nom
+Crop                                 Crop       39            TYPE, DESCR
+Union                               Union      117 TYPE, DESCR, code, nom
+Cover                               Cover       68 TYPE, DESCR, code, nom
+Symmetric_difference Symmetric_difference       65            TYPE, DESCR
