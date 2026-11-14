@@ -1,1 +1,1 @@
-{"world_bounds": [[-89.99999999998201, -179.99999999999997], [90.0, 179.99999999996405]], "france_bounds": [[40.000000000004995, -5.000000000017451], [55.000000000003496, 7.999999999981242]], "source": "GRAY_50M_SR_OB_preview.tif", "note": "Values represent image intensities, not terrain elevation."}
+{"world_bounds":[[-89.999999999982,-180],[90,179.999999999964]],"france_bounds":[[41.5000000000048,-4.75000000001749],[51.0000000000039,9.49999999998109]],"source":"GRAY_50M_SR_OB_preview.tif","note":"Image intensities, not elevation."}
