@@ -1,0 +1,6 @@
+class       : SpatRaster
+size        : 500, 500, 1  (nrow, ncol, nlyr)
+resolution  : 10, 10  (x, y)
+extent      : 310125, 315125, 6779100, 6784100  (xmin, xmax, ymin, ymax)
+coord. ref. : ETRS89-FRA [RGF93 v1] / Lambert-93 (EPSG:2154)
+[1] 1600

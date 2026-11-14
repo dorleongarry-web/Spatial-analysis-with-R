@@ -1,0 +1,15 @@
+[1] "ncols        400"                  "nrows        400"                 
+[3] "xllcorner    300000.000000000000"  "yllcorner    6740000.000000000000"
+[5] "cellsize     25.000000000000"      "NODATA_value -99999"              
+class       : SpatRaster
+size        : 400, 400, 1  (nrow, ncol, nlyr)
+resolution  : 25, 25  (x, y)
+extent      : 300000, 310000, 6740000, 6750000  (xmin, xmax, ymin, ymax)
+coord. ref. : ETRS89-FRA [RGF93 v1] / Lambert-93 (EPSG:2154)
+source      : bdalti-35-56-ascii-example.asc
+name        :   test25
+min value   : 2.029568
+max value   :       92
+  code             nom
+1   35 Ille-et-Vilaine
+2   56        Morbihan

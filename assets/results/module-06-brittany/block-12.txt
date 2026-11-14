@@ -1,0 +1,2 @@
+          IDW       Nearest Moving_window           TIN 
+       250000        250000        250000        250000 

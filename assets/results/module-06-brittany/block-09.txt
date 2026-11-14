@@ -1,0 +1,10 @@
+class       : SpatRaster
+size        : 400, 400, 1  (nrow, ncol, nlyr)
+resolution  : 25, 25  (x, y)
+extent      : 307625, 317625, 6776600, 6786600  (xmin, xmax, ymin, ymax)
+coord. ref. : ETRS89-FRA [RGF93 v1] / Lambert-93 (EPSG:2154)
+source(s)   : memory
+varname     : bdalti25_198350_6703225
+name        : elevation
+min value   : 60.387489
+max value   :       258

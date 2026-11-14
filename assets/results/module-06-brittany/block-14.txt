@@ -1,0 +1,5 @@
+         method   RMSE_m    MAE_m
+1           IDW 2.574524 1.701325
+2       Nearest 3.855520 2.471389
+3 Moving_window 4.706003 3.425265
+4           TIN 1.850758 1.135321
