@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Module 2: import, inspect, map, crop and export vector and raster data with terra in R."><title>02 · Basics | Geospatial Analysis with R</title><link rel="stylesheet" href="../assets/style.css"><style>.article h3{font:700 1.16rem 'Space Grotesk',sans-serif;margin:26px 0 10px}.article h2,.article h3{scroll-margin-top:90px}</style></head><body><header><nav class="nav"><a class="brand" href="../index.html">◈ &nbsp; Geospatial Analysis with R</a><div class="navlinks"><a href="../index.html#modules">Modules</a><a href="../index.html#about">About</a><a href="../index.html#resources">Resources</a></div></nav></header><section class="lesson-header"><div class="container"><span class="eyebrow">Module 02 / 09 · Essential workflows</span><h1>Basics: working with spatial data</h1><p>Import vector and raster data, inspect metadata, explore attributes, and develop reproducible maps and exports using R.</p></div></section><div class="container lesson-grid"><aside class="sidebar"><strong>Course navigation</strong><a class="" href="01-introduction.html">01 · Introduction</a><a class="active" href="02-basics.html">02 · Working with spatial data</a><a class="" href="03-projections.html">03 · Coordinate reference systems</a><a class="" href="04-wms.html">04 · Web map services</a><a class="" href="05-vectors.html">05 · Vector geoprocessing</a><a class="" href="06-rasters-1.html">06 · Raster analysis: terrain</a><a class="" href="07-rasters-2.html">07 · Multispectral remote sensing</a><a class="" href="08-advanced.html">08 · Advanced spatial analysis</a><a class="" href="09-case-studies.html">09 · Case studies and practicals</a><hr><strong>On this page</strong><a href="#setup">Project setup</a><a href="#vectors">Vector data</a><a href="#rasters">Raster data</a><a href="#exercise">Exercises</a><a href="#resources">Datasets</a></aside><main class="article"><div class="module-meta"><span>Level: introductory → intermediate</span><span>Tools: terra · readODS · RColorBrewer</span><span>Data: Natural Earth · French NPP · raster preview</span></div>
+<h2>Learning objectives</h2><p>By the end of this module, you should be able to import <code>SpatVector</code> and <code>SpatRaster</code> objects; inspect spatial metadata; query and map attributes; transform a vector CRS; create a point layer from tabular coordinates; and crop, mask, and export a raster.</p>
+<div class="note"><strong>Before you start:</strong> Download or clone the full GitHub repository so relative paths work in RStudio. The original GeoPackages and the French NPP spreadsheet are stored under <code>data/vectors/</code>. This update adds a reduced-resolution preview of the original global raster under <code>data/rasters/</code>. <a href="../scripts/02-basics.R" download>Download the complete R script ↓</a></div>
+<h2 id="setup">2.0 · Set up your R project</h2><p>Open the project root in RStudio, then install the packages once if they are missing. Run the script from the project root, not from the <code>scripts/</code> directory.</p>
+<pre><code># Run once if needed
+# install.packages(c(&quot;terra&quot;, &quot;readODS&quot;, &quot;RColorBrewer&quot;))
+library(terra)
+library(readODS)
+library(RColorBrewer)
+dir.create(&quot;outputs&quot;, showWarnings = FALSE)</code></pre>
+<h2 id="vectors">2.1 · Vector data</h2>
+<h3>2.1.1 · Importing vectors</h3><p>Use <code>terra::vect()</code> to read the Natural Earth GeoPackage containing country boundaries. This creates a <code>SpatVector</code>. GeoPackage (<code>.gpkg</code>) is a modern GIS file format supported by QGIS and R.</p>
+<pre><code>countries &lt;- vect(&quot;data/vectors/ne_50m_admin_0_countries.gpkg&quot;)
+plot(countries, col = &quot;beige&quot;)</code></pre>
+<h3>2.1.2 · Accessing metadata and attributes</h3><p>Inspect the object, coordinate reference system (CRS), extent, and attribute table. The source course reports 241 country features, 63 attributes and WGS84 (EPSG:4326). Your local package and data version determine the displayed details.</p>
+<pre><code>print(countries)
+crs(countries)
+ext(countries)
+country_attributes &lt;- as.data.frame(countries)
+head(country_attributes)
+france &lt;- countries[countries$adm0_a3 == &quot;FRA&quot;, ]
+plot(countries, col = &quot;lightgray&quot;)
+plot(france, col = &quot;gold&quot;, add = TRUE)</code></pre>
+<h3>2.1.3 · Attribute processing and thematic mapping</h3><p>The source dataset uses <code>-99</code> to indicate some missing GDP or population estimates. Filter invalid entries before computing GDP per capita. Compare a qualitative palette for <em>economic category</em> with a sequential palette for <em>ordered GDP-per-capita classes</em>.</p>
+<pre><code>countries2 &lt;- countries[countries$gdp_md_est &gt; 0 &amp; countries$pop_est &gt; 0, ]
+countries2$gdp_hab &lt;- countries2$gdp_md_est * 1e6 / countries2$pop_est
+hist(log10(countries2$gdp_hab))
+
+classes &lt;- cut(countries2$gdp_hab,
+  breaks = c(0, 3000, 10000, 20000, 40000, Inf),
+  labels = c(&quot;&lt;3k&quot;, &quot;3–10k&quot;, &quot;10–20k&quot;, &quot;20–40k&quot;, &quot;&gt;40k&quot;))
+cols &lt;- brewer.pal(5, &quot;Greens&quot;)
+plot(countries2, col = cols[as.integer(classes)])
+legend(&quot;bottomleft&quot;, legend = levels(classes), fill = cols, bg = &quot;white&quot;)</code></pre>
+<div class="note"><strong>Your turn:</strong> Try another qualitative or sequential palette from <code>RColorBrewer</code>. Then change the class breaks: what changes on the map? A full implementation of the economic-category map and GDP-per-capita boxplot is in the downloadable script.</div>
+<h3>2.1.4 · Projecting vectors</h3><p>Extract metropolitan France with a geographic extent, then transform its coordinates from WGS84 to Lambert-93 (EPSG:2154). <strong>Assigning</strong> a CRS is not the same as <strong>projecting</strong> coordinates.</p>
+<pre><code>france_met_wgs84 &lt;- crop(france, ext(-5, 8, 40, 55))
+france_met_l93 &lt;- project(france_met_wgs84, &quot;EPSG:2154&quot;)
+par(mfrow = c(1, 2))
+plot(france_met_wgs84, col = &quot;pink&quot;, main = &quot;WGS84&quot;)
+plot(france_met_l93, col = &quot;lightblue&quot;, main = &quot;Lambert-93&quot;)
+par(mfrow = c(1, 1))</code></pre>
+<h3>2.1.5 · Creating spatial points from a spreadsheet</h3><p>Import <code>French_NPP.ods</code>, which contains nuclear power plant data. Use its <code>Lon</code> and <code>Lat</code> columns to create a WGS84 point layer. In the full script, map operating-start decade with colour and net power with symbol size.</p>
+<pre><code>npp &lt;- read_ods(&quot;data/vectors/French_NPP.ods&quot;)
+head(npp)
+npp2 &lt;- vect(npp, geom = c(&quot;Lon&quot;, &quot;Lat&quot;), crs = &quot;EPSG:4326&quot;)
+plot(france_met_wgs84, col = &quot;coral&quot;)
+points(npp2, col = &quot;gold&quot;, pch = 19)</code></pre>
+<h3>2.1.6 · Exporting vectors</h3><p>Save the projected layer to <code>outputs/</code> without modifying the source file.</p>
+<pre><code>dir.create(&quot;outputs&quot;, showWarnings = FALSE)
+writeVector(france_met_l93, &quot;outputs/france_met_l93.gpkg&quot;, overwrite = TRUE)</code></pre>
+<h2 id="rasters">2.2 · Raster data</h2>
+<h3>2.2.1 · Importing rasters</h3><p>The source lesson uses the global <code>GRAY_50M_SR_OB.tif</code> image. To keep the GitHub exercise lightweight, this repository includes <a href="../data/rasters/GRAY_50M_SR_OB_preview.tif" download>a smaller preview raster</a> derived from that file by nearest-neighbour downsampling. It preserves geographic coverage and indicative image values, but has <strong>lower spatial resolution</strong>. The values are display intensities, <strong>not elevation in metres</strong>.</p>
+<pre><code>earth &lt;- rast(&quot;data/rasters/GRAY_50M_SR_OB_preview.tif&quot;)
+plot(earth)
+plot(earth, legend = FALSE, col = gray(seq(0, 1, length.out = 101)))
+lines(countries, col = &quot;darkblue&quot;)</code></pre>
+<h3>2.2.2 · Raster metadata</h3><p>Use <code>res()</code>, <code>ext()</code> and <code>crs()</code> to inspect pixel size, extent and spatial reference. The original 10,800 × 5,400 image has a pixel size of approximately 0.0333°; the downloadable preview is 1,440 × 720 pixels at 0.25°.</p>
+<pre><code>print(earth)
+res(earth)
+ext(earth)
+crs(earth)</code></pre>
+<h3>2.2.3 · Summarising cell values</h3><p>A histogram and summary describe the image values; R may use a sample of raster cells, especially for large rasters.</p>
+<pre><code>summary(earth)
+hist(earth)</code></pre>
+<h3>2.2.4 · Cropping and masking rasters</h3><p><code>crop()</code> limits the raster to a rectangular geographic extent; <code>mask()</code> sets pixels outside a polygon to <code>NA</code>. Here both operations use the metropolitan-France polygon.</p>
+<pre><code>topo_crop &lt;- crop(earth, france_met_wgs84)
+topo_mask &lt;- mask(topo_crop, france_met_wgs84)
+par(mfrow = c(1, 2))
+plot(topo_crop, main = &quot;Crop&quot;)
+plot(topo_mask, main = &quot;Crop + mask&quot;)
+par(mfrow = c(1, 1))</code></pre>
+<h3>2.2.5 · Exporting rasters</h3><p>Export the masked image as a GeoTIFF.</p>
+<pre><code>writeRaster(topo_mask, &quot;outputs/france_met_topo_mask.tif&quot;, overwrite = TRUE)</code></pre>
+<h2 id="exercise">Practical exercises</h2><ol><li>Identify the geometry type, number of attributes and CRS of the country dataset.</li><li>Explain why a sequential palette is preferable for GDP per capita and a qualitative palette for economic categories.</li><li>Compare France's shape before and after projection into EPSG:2154. Which coordinate units are used?</li><li>Create a map of French nuclear power plants with at least two mapped attributes.</li><li>Explain the difference between <code>crop</code> and <code>mask</code>, and identify the two exported files in <code>outputs/</code>.</li></ol>
+<h2 id="resources">Datasets and reproducibility</h2><p>For the vector sections, use the GeoPackage and ODS files from <code>data/vectors/</code> that have already been uploaded to the repository. The full-resolution original raster and the other large raster datasets remain in the separately supplied original archive; the reduced preview included with this update is sufficient for the steps demonstrated here.</p><p><a class="download-link" href="../scripts/02-basics.R" download>↓ Download complete Module 2 R script</a> &nbsp; <a href="../data/rasters/GRAY_50M_SR_OB_preview.tif" download>Download raster preview</a></p>
+<p><strong>Source acknowledgement:</strong> This module uses Natural Earth geographic data, the original course dataset collection, and a derived preview of the supplied raster. See dataset metadata for third-party terms of use.</p>
+<div class="lesson-next"><a href="01-introduction.html">← Previous module</a><a href="03-projections.html">Next: Coordinate reference systems →</a></div>
+</main></div><footer><div class="container">Geospatial Analysis with R · Educational website · <a href="../index.html#resources">Resources</a></div></footer></body></html>
