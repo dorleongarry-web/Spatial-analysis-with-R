@@ -12,3 +12,7 @@ PASS: local file references resolve
 Selected SHOM and LiDAR figures visually inspected
 Full-page browser rendering has not been verified here
 BRGM endpoints returned a rejection from this environment; no BRGM map result is included
+PASS: seven tabs with unique IDs and matching panels
+PASS: BRGM request is deferred until selection
+PASS: success/error display logic checked with a JavaScript test
+BRGM live image has not been retrieved successfully from this environment
