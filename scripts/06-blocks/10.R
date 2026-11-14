@@ -1,0 +1,13 @@
+dir.create("outputs/module-06", recursive = TRUE, showWarnings = FALSE)
+writeRaster(dem, "outputs/module-06/elevation.tif", overwrite = TRUE)
+writeRaster(slope_deg, "outputs/module-06/slope-degrees.tif", overwrite = TRUE)
+writeRaster(aspect_deg, "outputs/module-06/aspect-degrees.tif", overwrite = TRUE)
+writeRaster(hillshades$Northwest, "outputs/module-06/hillshade-northwest.tif", overwrite = TRUE)
+writeRaster(indices, "outputs/module-06/terrain-indices.tif", overwrite = TRUE)
+saved <- rast("outputs/module-06/slope-degrees.tif")
+stopifnot(compareGeom(saved, slope_deg))
+export_error <- global(abs(saved - slope_deg), "max", na.rm = TRUE)[1, 1]
+print(data.frame(max_export_difference = export_error))
+stopifnot(export_error < 0.00001)
+print(list.files("outputs/module-06", pattern = "tif$"))
+plot(saved, col = hcl.colors(60, "YlOrRd"), main = "Reopened slope GeoTIFF (degrees)")
