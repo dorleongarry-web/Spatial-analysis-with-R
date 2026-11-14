@@ -1,7 +1,7 @@
 library(terra)
 out <- "assets/results/module-05-brittany"
 dir.create(out, recursive = TRUE, showWarnings = FALSE)
-for (i in 1:8) {
+for (i in 1:11) {
   f <- sprintf("scripts/05-brittany-blocks/%02d.R", i)
   console <- file(sprintf("%s/block-%02d.txt", out, i), "wt")
   sink(console, split = TRUE)

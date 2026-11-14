@@ -1,5 +1,5 @@
-# Module 05: vector geoprocessing in Brittany
-# Run from the repository root. Exercise points are constructed, not field observations.
+# Module 05: polygons, lines and points on Brittany departments
+# Run in order from the project root.
 
 # Load and inspect the three departments
 library(terra)
@@ -61,7 +61,7 @@ lines(dept, col = "#526358", lty = 2)
 add_legend("topright", cex = 0.7, legend = c("Department 35", "Buffer extension"),
        fill = c("#e4a07a", "#f5dc9d"), bty = "n")
 
-# Compare six polygon overlays
+# Polygons on polygons: compare six overlays
 neighbours <- dept[dept$code != "35", ]
 overlays <- list(
   Intersect = intersect(neighbours, buf),
@@ -84,7 +84,60 @@ for (operation in names(overlays)) {
          lty = c(NA, 1, NA), col = c(NA, "#2e729d", NA), bty = "n")
 }
 
-# Join department attributes to points
+# Lines on polygons: inspect the watercourses
+dir.create("outputs/module-05-brittany", recursive = TRUE, showWarnings = FALSE)
+rivers <- vect("data/vectors/brittany-watercourses.gpkg")
+stopifnot(same.crs(rivers, dept), all(is.valid(rivers)))
+print(nrow(rivers))
+print(head(as.data.frame(rivers)))
+line_view <- union(ext(dept), ext(rivers)) * 1.08
+plot(dept, ext = line_view, col = "#edf0e6", main = "BD Topage watercourses: teaching selection")
+lines(rivers, col = "#277da8", lwd = 1.2)
+add_legend("topright", legend = c("Watercourse", "Department"),
+           lty = c(1, NA), col = c("#277da8", "black"),
+           fill = c(NA, "#edf0e6"), border = c(NA, "black"), cex = 0.7, bty = "n")
+
+# Lines on polygons: select without cutting
+line_tests <- list(
+  Intersects = rowSums(relate(rivers, dept, "intersects")) > 0,
+  Crosses = rowSums(relate(rivers, dept, "crosses")) > 0,
+  Within = rowSums(relate(rivers, dept, "within")) > 0,
+  Disjoint_from_all = rowSums(relate(rivers, dept, "disjoint")) == nrow(dept)
+)
+print(data.frame(predicate = names(line_tests), selected = sapply(line_tests, sum)))
+stopifnot(all(line_tests$Disjoint_from_all == !line_tests$Intersects))
+for (predicate in names(line_tests)) {
+  chosen <- line_tests[[predicate]]
+  plot(dept, ext = line_view, col = "#edf0e6", main = gsub("_", " ", predicate))
+  lines(rivers, col = "#aeb6bc", lwd = 0.8)
+  if (any(chosen)) lines(rivers[chosen, ], col = "#d35831", lwd = 2)
+  add_legend("topright", legend = c("Selected watercourse", "Other watercourses"),
+             col = c("#d35831", "#aeb6bc"), lty = 1, lwd = c(2, 1), cex = 0.7, bty = "n")
+}
+
+# Lines on polygons: cut, measure and export
+pieces <- intersect(rivers, dept[, c("code", "nom")])
+pieces$length_km <- perim(pieces) / 1000
+lengths <- aggregate(pieces$length_km, by = list(department = pieces$code), FUN = sum)
+names(lengths)[2] <- "selected_watercourse_km"
+print(lengths)
+print(data.frame(source_features = nrow(rivers), clipped_features = nrow(pieces)))
+plot(dept, col = "#edf0e6", main = "Watercourses cut by department boundaries")
+line_colours <- c("22" = "#48833b", "35" = "#cf692f", "56" = "#626eb3")
+for (code in names(line_colours)) {
+  lines(pieces[pieces$code == code, ], col = line_colours[[code]], lwd = 1.5)
+}
+add_legend("topright", legend = c("22", "35", "56"),
+           col = line_colours, lty = 1, lwd = 2, cex = 0.7, bty = "n")
+writeVector(pieces, "outputs/module-05-brittany/watercourse-pieces.gpkg", overwrite = TRUE)
+write.csv(lengths, "outputs/module-05-brittany/watercourse-lengths.csv", row.names = FALSE)
+reopened <- vect("outputs/module-05-brittany/watercourse-pieces.gpkg")
+stopifnot(nrow(reopened) == nrow(pieces), same.crs(reopened, pieces))
+stopifnot(all(pieces$length_km > 0),
+          all(pieces$river_id %in% rivers$river_id),
+          all(is.valid(pieces)))
+
+# Points on polygons: join department attributes
 hits <- extract(dept[, c("code", "nom")], sites)
 stopifnot(!anyDuplicated(hits$id.y))
 matched <- hits[match(seq_len(nrow(sites)), hits$id.y), ]
