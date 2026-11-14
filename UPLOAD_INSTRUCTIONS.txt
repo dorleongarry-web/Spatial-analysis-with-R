@@ -1,0 +1,8 @@
+Real course data GitHub update (vector subset only)
+
+1. Inspect redistribution rights for the original data before uploading to a PUBLIC repository.
+2. Extract this ZIP locally. Upload folder contents data/, scripts/, lessons/ into their matching repository paths.
+3. Do NOT upload original raster ZIP (393 MB) directly to the GitHub code repository.
+4. Open lessons/01-course-data.html on GitHub Pages to test vector download links.
+5. Keep the existing index.html, assets/ and other lessons unchanged.
+6. The former synthetic data files can remain for teaching, but label them as synthetic; they are not needed for the real-data example.
