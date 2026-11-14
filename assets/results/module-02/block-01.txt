@@ -1,0 +1,12 @@
+
+=== RStudio course project check ===
+Current directory: /workspace/scratch/89b3b7988630/module-02-update 
+[OK]      data
+[OK]      data/vectors
+[OK]      scripts
+[OK]      lessons
+[OK]       data/vectors/ne_50m_admin_0_countries.gpkg
+[OK]       data/rasters/GRAY_50M_SR_OB_preview.tif
+
+All required checks for the first vector exercise passed.
+Next: library(terra); countries <- vect("data/vectors/ne_50m_admin_0_countries.gpkg")

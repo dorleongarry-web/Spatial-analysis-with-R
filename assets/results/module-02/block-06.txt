@@ -1,0 +1,11 @@
+# A tibble: 6 × 14
+  Name       Plant City    Lat    Lon Departement    Rg Palier Thermal_power_Mwt
+  <chr>      <chr> <chr> <dbl>  <dbl> <chr>       <dbl> <chr>              <dbl>
+1 BELLEVILL… Bell… Bell…  47.5  2.85  Cher           54 P'4                 3817
+2 BELLEVILL… Bell… Bell…  47.5  2.85  Cher           55 P'4                 3817
+3 BLAYAIS-15 Blay… Brau…  45.2 -0.626 Gironde        32 CP1                 2785
+4 BLAYAIS-25 Blay… Brau…  45.2 -0.626 Gironde        33 CP1                 2785
+5 BLAYAIS-3  Blay… Brau…  45.2 -0.626 Gironde        34 CP1                 2785
+6 BLAYAIS-4  Blay… Brau…  45.2 -0.626 Gironde        35 CP1                 2785
+# ℹ 5 more variables: Gross_power_Mwe <dbl>, Net_power_Mwe <dbl>,
+#   Construction_start <dbl>, Network_connection <dbl>, Operation_start <dbl>
