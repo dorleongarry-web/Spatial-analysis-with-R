@@ -1,0 +1,5 @@
+npp <- read_ods("data/vectors/French_NPP.ods")
+head(npp)
+npp2 <- vect(npp, geom = c("Lon", "Lat"), crs = "EPSG:4326")
+plot(france_met_wgs84, col = "coral")
+points(npp2, col = "gold", pch = 19)

@@ -1,0 +1,6 @@
+topo_crop <- crop(earth, france_met_wgs84)
+topo_mask <- mask(topo_crop, france_met_wgs84)
+par(mfrow = c(1, 2))
+plot(topo_crop, main = "Crop")
+plot(topo_mask, main = "Crop + mask")
+par(mfrow = c(1, 1))

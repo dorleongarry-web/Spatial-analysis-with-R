@@ -31,11 +31,17 @@ countries2 <- countries[
     !is.na(countries$pop_est) & countries$pop_est > 0,
 ]
 countries2$gdp_hab <- countries2$gdp_md_est * 1e6 / countries2$pop_est
-par(mfrow = c(1, 2))
-hist(log10(countries2$gdp_hab), main = "log10(GDP per capita)", xlab = "log10(USD per person)")
-boxplot(gdp_hab ~ economy, data = as.data.frame(countries2), log = "y",
-        las = 2, cex.axis = 0.6, ylab = "GDP per capita")
-par(mfrow = c(1, 1))
+hist(log10(countries2$gdp_hab), xlab = "log10(USD per person)")
+
+
+# Boxplots: labelled economic categories and logarithmic GDP axis
+economy <- factor(countries2$economy)
+par(mar = c(5, 16, 4, 2))
+boxplot(countries2$gdp_hab ~ economy, horizontal = TRUE, log = "x",
+        las = 1, cex.axis = 0.75, col = "lightblue",
+        xlab = "GDP per capita (USD; logarithmic scale)",
+        ylab = "", main = "GDP per capita by economic category")
+par(mar = c(5.1, 4.1, 4.1, 2.1))
 
 # Qualitative palette for categories
 econ_categories <- sort(unique(as.character(countries2$economy)))

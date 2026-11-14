@@ -1,0 +1,2 @@
+summary(earth)
+hist(earth)

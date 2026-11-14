@@ -1,0 +1,1 @@
+writeRaster(topo_mask, "outputs/france_met_topo_mask.tif", overwrite = TRUE)

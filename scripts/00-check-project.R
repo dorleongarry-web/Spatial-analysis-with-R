@@ -30,4 +30,4 @@ if (file.exists(raster_path)) {
 }
 
 cat("\nAll required checks for the first vector exercise passed.\n")
-cat("Next: library(terra); countries <- vect("", vector_path, "")\n", sep = "")
+cat('Next: library(terra); countries <- vect("', vector_path, '")\n', sep = "")

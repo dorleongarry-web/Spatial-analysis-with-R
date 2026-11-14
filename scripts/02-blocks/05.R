@@ -1,0 +1,6 @@
+france_met_wgs84 <- crop(france, ext(-6, 10, 41, 52))
+france_met_l93 <- project(france_met_wgs84, "EPSG:2154")
+par(mfrow = c(1, 2))
+plot(france_met_wgs84, col = "pink", main = "WGS84")
+plot(france_met_l93, col = "lightblue", main = "Lambert-93")
+par(mfrow = c(1, 1))
