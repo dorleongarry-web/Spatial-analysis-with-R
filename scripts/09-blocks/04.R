@@ -1,0 +1,15 @@
+slope_degrees <- terrain(dem, v = "slope", unit = "degrees", neighbors = 8)
+slope_percent_native <- 100 * tan(slope_degrees * pi / 180)
+slope_percent <- mask(resample(slope_percent_native, template, method = "bilinear"), domain)
+names(slope_percent) <- "slope_percent"
+stopifnot(compareGeom(slope_percent, texture))
+slope_penalty <- ifel(slope_percent >= 10 & slope_percent <= 15, 1, 0)
+steep <- slope_percent > 15
+print(global(slope_percent, c("min", "mean", "max"), na.rm = TRUE))
+plot(slope_percent, col = hcl.colors(100, "YlOrRd", rev = TRUE), main = "Slope (%) — not degrees")
+lines(basin)
+slope_band <- ifel(steep, 2, slope_penalty)
+slope_band <- as.factor(slope_band)
+levels(slope_band) <- data.frame(ID = 0:2, rule = c("<10%: no penalty", "10–15%: +1 class", ">15%: class VI"))
+plot(slope_band, col = c("#dce6d5", "#dfb761", "#b34c42"), all_levels = TRUE, main = "Slope decision rule")
+lines(basin)

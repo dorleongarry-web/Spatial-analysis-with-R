@@ -1,0 +1,10 @@
+writeRaster(suitability, "outputs/module-09/cropping-suitability-5m.tif", datatype = "INT1U", overwrite = TRUE)
+writeRaster(c(slope_percent, base, texture_penalty, stone), "outputs/module-09/classification-inputs-5m.tif", overwrite = TRUE)
+writeVector(soils, "outputs/module-09/decoded-soil-units.gpkg", overwrite = TRUE)
+reopened <- rast("outputs/module-09/cropping-suitability-5m.tif")
+stopifnot(compareGeom(suitability, reopened), all(values(suitability) == values(reopened), na.rm = TRUE),
+          all(is.na(values(suitability)) == is.na(values(reopened))))
+writeLines(capture.output(sessionInfo()), "outputs/module-09/session-info.txt")
+plot(map_classes, col = c("#c7cbd0", class_colours), all_levels = TRUE, main = "Kervidy–Naizin: cropping suitability")
+lines(basin, lwd = 1.5)
+sbar(1000, type = "bar", below = "1 km", labels = c("", "", ""))
