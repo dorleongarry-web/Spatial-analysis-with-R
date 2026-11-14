@@ -1,0 +1,5 @@
+  max_export_difference
+1          2.345828e-07
+[1] "aspect-degrees.tif"      "elevation.tif"          
+[3] "hillshade-northwest.tif" "slope-degrees.tif"      
+[5] "terrain-indices.tif"    

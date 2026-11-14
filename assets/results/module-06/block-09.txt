@@ -1,0 +1,7 @@
+         group elevation
+1     Diekirch  403.1779
+2 Grevenmacher  283.8853
+3   Luxembourg  316.1935
+
+    Diekirch Grevenmacher   Luxembourg 
+        2024          924         1607 

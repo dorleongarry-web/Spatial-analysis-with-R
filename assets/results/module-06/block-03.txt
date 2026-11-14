@@ -1,0 +1,2 @@
+  cropped_cells cropped_values masked_values
+1          1120            788           604
