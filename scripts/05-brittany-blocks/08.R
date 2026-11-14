@@ -1,13 +1,16 @@
-counts <- as.data.frame(table(joined$department_code))
-names(counts) <- c("department_code", "exercise_points")
-print(counts)
-dir.create("outputs/module-05-brittany", recursive = TRUE, showWarnings = FALSE)
-writeVector(joined, "outputs/module-05-brittany/exercise-points.gpkg", overwrite = TRUE)
-writeVector(area, "outputs/module-05-brittany/study-area.gpkg", overwrite = TRUE)
-write.csv(counts, "outputs/module-05-brittany/point-counts.csv", row.names = FALSE)
-check <- vect("outputs/module-05-brittany/exercise-points.gpkg")
-stopifnot(nrow(check) == nrow(joined), same.crs(check, joined))
-barplot(counts$exercise_points, names.arg = counts$department_code,
-        col = c("#74a454", "#db8a5c", "#7d8bbd"),
-        xlab = "Department code", ylab = "Number of exercise points",
-        main = "Regular grid points inside each department")
+line_tests <- list(
+  Intersects = rowSums(relate(rivers, dept, "intersects")) > 0,
+  Crosses = rowSums(relate(rivers, dept, "crosses")) > 0,
+  Within = rowSums(relate(rivers, dept, "within")) > 0,
+  Disjoint_from_all = rowSums(relate(rivers, dept, "disjoint")) == nrow(dept)
+)
+print(data.frame(predicate = names(line_tests), selected = sapply(line_tests, sum)))
+stopifnot(all(line_tests$Disjoint_from_all == !line_tests$Intersects))
+for (predicate in names(line_tests)) {
+  chosen <- line_tests[[predicate]]
+  plot(dept, ext = line_view, col = "#edf0e6", main = gsub("_", " ", predicate))
+  lines(rivers, col = "#aeb6bc", lwd = 0.8)
+  if (any(chosen)) lines(rivers[chosen, ], col = "#d35831", lwd = 2)
+  add_legend("topright", legend = c("Selected watercourse", "Other watercourses"),
+             col = c("#d35831", "#aeb6bc"), lty = 1, lwd = c(2, 1), cex = 0.7, bty = "n")
+}
