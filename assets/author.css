@@ -1,0 +1,9 @@
+/* Shared author identity, kept separate from the course styles. */
+.course-footer{background:#fff;border-top:1px solid #dce5e6;padding:28px 0;color:#5f7280;font-size:.86rem}
+.course-footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.course-footer-author,.course-footer-links{display:flex;flex-direction:column;gap:4px;line-height:1.6}
+.course-footer-author strong{color:#172c36;font-size:1rem;font-weight:700}
+.course-footer-links{align-items:flex-end;font-size:.8rem}
+.course-footer-links a{color:#147a72;text-underline-offset:3px}
+.academic-affiliation .academic-author{border-left:3px solid #147a72;padding-left:18px}
+@media(max-width:650px){.course-footer-inner{align-items:flex-start;gap:16px}.course-footer-author{max-width:100%}.course-footer-links{align-items:flex-start}.course-footer-author span{overflow-wrap:anywhere}}
