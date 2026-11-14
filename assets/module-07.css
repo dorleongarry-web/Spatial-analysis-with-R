@@ -6,3 +6,5 @@
 
 /* Keep R figures within the active overlay panel on every screen size. */
 .lesson-grid > .article{min-width:0}.projection-tabs,.projection-panel{min-width:0;max-width:100%;box-sizing:border-box}.projection-panel figure{max-width:100%;margin-left:0;margin-right:0}.projection-panel img{display:block;width:100%;max-width:100%;height:auto}
+
+.spectral-reference{margin:20px 0;border:1px solid #dce5e6;background:#fff;padding:12px;border-radius:8px}.spectral-reference img{display:block;width:100%;max-width:100%;height:auto}.spectral-reference figcaption{font-size:.83rem;line-height:1.6;color:#526a70;margin-top:10px}
