@@ -1,0 +1,9 @@
+PASS: 10 displayed R blocks completed on the real MOSAIC data.
+PASS: 198 finite SOC observations, no duplicate sampling coordinates; EPSG:2154.
+PASS: exponential full-sample and training-only variograms nonsingular with nonnegative partial sills.
+PASS: 25 m grid, finite predictions and nonnegative kriging variances.
+PASS: shared kriging / IDW prediction grid and colour limits.
+PASS: reopened prediction GeoTIFF geometry agrees; max numeric rounding <0.000008 g C/kg.
+PASS: 16 figure files, unique HTML identifiers, all local references resolve.
+PASS: figures visually inspected, complete catchment and scale bars included in final layout.
+Browser interaction and responsive rendering could not be verified: local Chromium launch is unavailable.
