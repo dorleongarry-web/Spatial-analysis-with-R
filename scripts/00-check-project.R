@@ -22,7 +22,7 @@ if (!file.exists(vector_path)) {
 cat("[OK]       ", vector_path, "\n", sep = "")
 
 # The raster preview is used later; this warning does not block vector exercises.
-raster_path <- "data/rasters/GRAY_50M_SR_OB_preview.tif"
+raster_path <- "data/rasters/relief_mondial.tif"
 if (file.exists(raster_path)) {
   cat("[OK]       ", raster_path, "\n", sep = "")
 } else {

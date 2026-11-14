@@ -75,7 +75,7 @@ overlay(topo_crop, "france-crop.png")
 overlay(topo_mask, "france-mask.png")
 e <- as.vector(ext(topo_crop))
 w <- as.vector(ext(earth))
-writeLines(sprintf('{"world_bounds":[[%s,%s],[%s,%s]],"france_bounds":[[%s,%s],[%s,%s]],"source":"GRAY_50M_SR_OB_preview.tif","note":"Image intensities, not elevation."}',
+writeLines(sprintf('{"world_bounds":[[%s,%s],[%s,%s]],"france_bounds":[[%s,%s],[%s,%s]],"source":"relief_mondial.tif","note":"Image intensities, not elevation."}',
                    w[3], w[1], w[4], w[2], e[3], e[1], e[4], e[2]),
            "assets/maps/raster-bounds.json")
 message("Module 02: 8 PNG figures exported to assets/figures/")

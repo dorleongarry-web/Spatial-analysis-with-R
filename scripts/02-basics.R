@@ -90,10 +90,9 @@ legend("bottomleft", legend = levels(npp2$start_cat), fill = start_palette,
 # 2.1.6 — Export vectors
 writeVector(france_met_l93, "outputs/france_met_l93.gpkg", overwrite = TRUE)
 
-# 2.2.1 — Raster: portable preview derived from the original Natural Earth TIFF
-# In the original course PDF, the full-size raster is named GRAY_50M_SR_OB.tif.
-# This preview has fewer pixels; its resolution differs from the source PDF.
-earth <- rast("data/rasters/GRAY_50M_SR_OB_preview.tif")
+# 2.2.1 — Natural Earth shaded relief, native resolution
+# Source filename: GRAY_50M_SR_OB.tif; renamed locally to relief_mondial.tif.
+earth <- rast("data/rasters/relief_mondial.tif")
 plot(earth, main = "Earth topographic shading (preview)")
 plot(earth, legend = FALSE, col = gray(seq(0, 1, length.out = 101)))
 lines(countries, col = "darkblue")
