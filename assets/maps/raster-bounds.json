@@ -1,1 +1,1 @@
-{"world_bounds":[[-89.999999999982,-180],[90,179.999999999964]],"france_bounds":[[41.5000000000048,-4.75000000001749],[51.0000000000039,9.49999999998109]],"source":"GRAY_50M_SR_OB_preview.tif","note":"Image intensities, not elevation."}
+{"world_bounds":[[-89.999999999982,-180],[90,179.999999999964]],"france_bounds":[[41.4000000000049,-4.76666666668415],[51.1000000000039,9.56666666664775]],"source":"relief_mondial.tif","note":"Image intensities, not elevation. Global web overlay reduced 4x; regional overlays at native resolution."}
