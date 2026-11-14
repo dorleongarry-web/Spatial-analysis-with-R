@@ -31,3 +31,5 @@ https://r-spatial.github.io/gstat/reference/fit.variogram.html
 https://r-spatial.github.io/gstat/reference/krige.html
 https://r-spatial.github.io/gstat/reference/krige.cv.html
 https://rspatial.github.io/terra/reference/writeRaster.html
+
+Validation metrics update: RMSE, predictive R² = 1 − SSE/SST (using the relevant validation-set observed mean), and n are shown on observed-versus-predicted plots and the page summary table. Negative predictive R² values are retained. This R² is not squared Pearson correlation. Comparing RMSE across validation designs with different observation distributions is not a direct model-ranking test.
