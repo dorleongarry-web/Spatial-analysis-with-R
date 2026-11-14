@@ -1,0 +1,15 @@
+Module 07 validation
+PASS: all 9 displayed R blocks executed, terra 1.9.50 and stringr 1.6.0
+PASS: actual Sentinel-2B C1 L2A scene S2B_T30UWU_20240719T111146_L2A
+PASS: exactly 10 expected spectral bands; SCL excluded from the spectral stack
+PASS: all prepared grids have identical geometry, 1200 x 1000 at 20 m, EPSG:32630
+PASS: source scale/offset applied once; prepared reflectance metadata scale=1, offset=0
+PASS: crop 800 x 600 cells, intersects departments 35 and 56
+PASS: local SCL classes all in the explicit retention set; 480000 retained crop pixels
+PASS: full-value B01 quantiles and histogram, not a sampled raster summary
+PASS: each stretched band ranges from 0 to 1000
+PASS: all RGB plots use explicit scale=1000 and band-name channel assignments
+PASS: physical-reflectance export reopened, grid matches; max difference exactly 0 for all bands
+PASS: 27 R PNG figures generated and overview visually inspected
+Native-resolution and input-source metadata are recorded under data/.
+Full browser rendering and live background tiles are not verified.
