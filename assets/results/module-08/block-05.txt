@@ -1,4 +1,4 @@
-                 method   n        bias      MAE     RMSE
-1 OK: conditional LOOCV 198 -0.08117513 7.805423 17.56237
+                 method   n        bias      MAE     RMSE R2_predictive
+1 OK: conditional LOOCV 198 -0.08117513 7.805423 17.56237   0.001107189
       Min.    1st Qu.     Median       Mean    3rd Qu.       Max. 
 -2.1390055 -0.3362625 -0.1033704 -0.0003267  0.1367300 10.0121290 

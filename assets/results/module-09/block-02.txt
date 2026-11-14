@@ -1,0 +1,12 @@
+     [,1] [,2] [,3]
+[1,]    1    2    4
+[2,]    3    4    5
+[3,]    4    5    6
+     LABEL HYDROMORPH DEPTH
+157   V8V4          8     4
+177  ZH8V3          8     3
+187 ZVx8V3          8     3
+240   V8V2          8     2
+264   V8V2          8     2
+  shallow_contact_units unresolved_code8_units
+1                     1                      5

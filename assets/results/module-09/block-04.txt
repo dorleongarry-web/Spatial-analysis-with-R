@@ -1,0 +1,2 @@
+              min     mean      max
+slope_percent   0 4.044696 28.30953

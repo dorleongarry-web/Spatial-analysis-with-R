@@ -3,6 +3,6 @@
   model    psill    range
 1   Nug   0.0000   0.0000
 2   Exp 455.3606 166.9671
-    method  n      bias      MAE     RMSE
-OK      OK 49 -1.028232 6.013378 8.801200
-IDW    IDW 49 -1.032396 6.005453 8.583503
+    method  n      bias      MAE     RMSE R2_predictive
+OK      OK 49 -1.028232 6.013378 8.801200   -0.12071573
+IDW    IDW 49 -1.032396 6.005453 8.583503   -0.06595962
