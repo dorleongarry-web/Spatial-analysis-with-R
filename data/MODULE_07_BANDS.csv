@@ -1,0 +1,11 @@
+band,spectral_name,central_wavelength_nm,native_resolution_m,prepared_resolution_m,preparation_method
+B01,coastal,443,60,20,bilinear
+B02,blue,490,10,20,area average
+B03,green,560,10,20,area average
+B04,red,665,10,20,area average
+B05,rededge,704,20,20,aligned native grid
+B06,rededge,740,20,20,aligned native grid
+B07,rededge,783,20,20,aligned native grid
+B11,swir16,1610,20,20,aligned native grid
+B12,swir22,2190,20,20,aligned native grid
+B8A,nir08,865,20,20,aligned native grid

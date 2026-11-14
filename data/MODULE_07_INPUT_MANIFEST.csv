@@ -1,0 +1,12 @@
+file,source_href,native_resolution_m,prepared_resolution_m,sha256
+sentinel2_B01.tif,https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/30/U/WU/2024/7/S2B_T30UWU_20240719T111146_L2A/B01.tif,60,20,a314f35cd7fdb13ac55819ecf4b2c23440c511904bd2c16d7f22fc6df0388fcb
+sentinel2_B02.tif,https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/30/U/WU/2024/7/S2B_T30UWU_20240719T111146_L2A/B02.tif,10,20,7c48b10c8b8d695e306cb1010cf74ae20ee5dab2021b95fcc2ba75d77e345c5a
+sentinel2_B03.tif,https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/30/U/WU/2024/7/S2B_T30UWU_20240719T111146_L2A/B03.tif,10,20,af2e3ed3ff4939fef4ffcb19d23dcb1a03f6c24c8ce63d1b8cdcaa164fd590bb
+sentinel2_B04.tif,https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/30/U/WU/2024/7/S2B_T30UWU_20240719T111146_L2A/B04.tif,10,20,518d5894bfedea7ce9a348389f57f5cd77dd545b519ad57f72b6eea95adc5873
+sentinel2_B05.tif,https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/30/U/WU/2024/7/S2B_T30UWU_20240719T111146_L2A/B05.tif,20,20,de9a4477666e3b623db6d41385e486d6ac2b633db3cc2983a38a0722bc2307bd
+sentinel2_B06.tif,https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/30/U/WU/2024/7/S2B_T30UWU_20240719T111146_L2A/B06.tif,20,20,19c4564af251bb6d13b0cb2915b3a8e08f5f92d1a3cd7c8755a8823d5b6a8b97
+sentinel2_B07.tif,https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/30/U/WU/2024/7/S2B_T30UWU_20240719T111146_L2A/B07.tif,20,20,5318e04ef3837e82c82b3ab4da3451037eb8de794c0be4cee48f211df4915de2
+sentinel2_B11.tif,https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/30/U/WU/2024/7/S2B_T30UWU_20240719T111146_L2A/B11.tif,20,20,786adc0a76bf675467c5977ddd3f4aca0534dcc0c856747a27e0a064abbb3ca7
+sentinel2_B12.tif,https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/30/U/WU/2024/7/S2B_T30UWU_20240719T111146_L2A/B12.tif,20,20,5ad1f98efd8a7620b88dbe9d3c8be134a7be52d8b9fc7390433f5bf011505443
+sentinel2_B8A.tif,https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/30/U/WU/2024/7/S2B_T30UWU_20240719T111146_L2A/B8A.tif,20,20,59c527e193cec4e2be701700b7d8cf1ddd765573749f0e22e561336af77184eb
+sentinel2_SCL.tif,https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/30/U/WU/2024/7/S2B_T30UWU_20240719T111146_L2A/SCL.tif,20,20,7d8d66f51063f61e312a34296b39d97026e30223c716ef7cba48d2a21d215b43
