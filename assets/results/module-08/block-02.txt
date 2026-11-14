@@ -1,0 +1,11 @@
+Simple feature collection with 5 features and 2 fields
+Geometry type: POINT
+Dimension:     XY
+Bounding box:  xmin: 265589.9 ymin: 6781517 xmax: 266317.9 ymax: 6784291
+Projected CRS: ETRS89-FRA [RGF93 v1] / Lambert-93
+    ID_MOSAIC   SOC                     geom
+49         56 204.0 POINT (265755.9 6782546)
+62         69 127.0 POINT (265735.5 6783030)
+101       108  99.5 POINT (265589.9 6784291)
+67         74  75.4 POINT (265599.6 6783270)
+26         28  72.3 POINT (266317.9 6781517)

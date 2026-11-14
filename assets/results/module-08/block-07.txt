@@ -1,0 +1,5 @@
+[using ordinary kriging]
+[inverse distance weighted interpolation]
+                        min     mean       max
+SOC_g_C_kg        16.142178 30.01263 182.12126
+kriging_SE_g_C_kg  6.300483 14.81537  19.95618

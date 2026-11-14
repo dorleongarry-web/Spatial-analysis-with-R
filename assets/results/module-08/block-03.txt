@@ -1,0 +1,3 @@
+  model    psill    range
+1   Nug   0.0000    0.000
+2   Sph 216.8372 2366.113

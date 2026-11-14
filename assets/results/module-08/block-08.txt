@@ -1,0 +1,7 @@
+                           mean       sd       min      max
+IDW_minus_OK_g_C_kg -0.04349021 2.651933 -24.00599 20.78802
+  fraction_IDW_within_OK_plus_minus_2SE
+1                             0.9998986
+                   mean        sd
+SOC_g_C_kg     30.01263 10.620501
+IDW_SOC_g_C_kg 29.96914  9.791027
