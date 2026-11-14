@@ -1,6 +1,20 @@
-PASS: R lesson and figure builder completed
-PASS: 241 source countries imported
-PASS: Lambert-93 GeoPackage readable
-PASS: masked GeoTIFF contains valid and masked cells
-Raster preview: 720 rows x 1440 columns
-Masked raster: 38 rows x 57 columns
+PASS: full-resolution source = 10800 x 5400 cells
+PASS: source resolution retained by crop and mask
+PASS: 12 displayed R blocks executed successfully
+class       : SpatRaster
+size        : 5400, 10800, 1  (nrow, ncol, nlyr)
+resolution  : 0.03333333, 0.03333333  (x, y)
+extent      : -180, 180, -90, 90  (xmin, xmax, ymin, ymax)
+coord. ref. : lon/lat WGS 84 (EPSG:4326)
+source      : relief_mondial.tif
+name        : relief_mondial
+class       : SpatRaster
+size        : 291, 430, 1  (nrow, ncol, nlyr)
+resolution  : 0.03333333, 0.03333333  (x, y)
+extent      : -4.766667, 9.566667, 41.4, 51.1  (xmin, xmax, ymin, ymax)
+coord. ref. : lon/lat WGS 84 (EPSG:4326)
+source(s)   : memory
+varname     : relief_mondial
+name        : relief_mondial
+min value   :             58
+max value   :            235
