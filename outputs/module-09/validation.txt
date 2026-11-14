@@ -1,0 +1,11 @@
+PASS: all 9 displayed R blocks executed on the supplied Kervidy–Naizin case-study inputs.
+PASS: common Lambert-93 reference system and 5 m input resolution.
+PASS: soil depth and hydromorphy code lookups retain unknown values; shallow-contact exception is explicit.
+PASS: hydromorphy code 8 remains unresolved in the main map; 3 onset-group sensitivity scenarios are exported.
+PASS: slope percent derived before bilinear alignment; categorical soil attributes are rasterised by cell centre.
+PASS: class range I–VI; class VI cap and exact slope boundaries checked with explicit examples.
+PASS: class areas including unclassified land sum to the masked domain area.
+PASS: land-use proportions sum to 100% within every class including missing-coverage categories.
+PASS: integer GeoTIFF reopened with identical geometry, class values and missing-value mask.
+PASS: 13 R figures visually inspected; all local HTML references resolve and tab identifiers are unique.
+Browser interaction and responsive rendering are not verified in this environment.
