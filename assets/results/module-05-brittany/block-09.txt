@@ -1,0 +1,6 @@
+  department selected_watercourse_km
+1         22                502.1783
+2         35                581.6745
+3         56                421.1046
+  source_features clipped_features
+1              31               38
