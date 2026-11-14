@@ -1,11 +1,14 @@
-Module 05 — rebuilt Brittany edition
-PASS: 8 displayed blocks executed successfully using terra 1.9.50
-PASS: department geometries repaired and validity checked
-PASS: 13 R figures generated; map legends inspected
-PASS: 90 exercise points; 51 matches and 39 nonmatches
-PASS: joined point count and coordinates unchanged
-PASS: exported GeoPackage reopened with matching CRS and feature count
-PASS: six overlay figures and accessible tab relationships
-PASS: official function-help URLs checked (HTTP 200); new add_legend link reused from earlier verified module
-Full browser rendering and live map tiles are not verified.
-GitHub deployment failure remains to be diagnosed from Actions logs.
+Module 05 — Brittany polygons, lines and points
+PASS: all 11 displayed R blocks executed successfully, terra 1.9.50
+PASS: 19 R figures generated; six new watercourse figures visually inspected
+PASS: 31 valid source watercourse features, projected EPSG:2154
+PASS: predicates: intersects 26, crosses 20, within 6, disjoint from all 5
+PASS: disjoint-from-all is the complement of intersects-any
+PASS: intersection yields 38 valid features retaining source IDs and department attributes
+PASS: positive line lengths; GeoPackage reopened with same CRS and feature count
+PASS: point join retains 90 points, geometry unchanged, 39 without department match
+PASS: 10 tabs have unique IDs, valid panel references and matching figure files
+PASS: all local links resolve
+PASS: complete map frames and responsive figure CSS retained
+Official help checked for perim, relate and intersect; existing function-help links retained.
+Full browser rendering and live background tiles remain unverified.
