@@ -11,3 +11,10 @@ PASS: all 60 external function-help links returned HTTP 200
 PASS: one local plotting helper documented with a link to its definition
 Visual checks: data maps, dissolve, cover, spatial predicates and attribute joins inspected
 Full-page browser rendering has not been verified in this environment
+
+Location map supplement:
+PASS: supplementary R script executed and static map visually inspected
+PASS: default departments 22/35/56; course switch 07/43/48
+PASS: mocked Leaflet integration checks popups, legend, reset and three attributed basemaps
+PASS: JavaScript syntax check
+Live background tiles and full browser layout remain unverified
