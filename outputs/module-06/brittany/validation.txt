@@ -1,0 +1,17 @@
+Chapter 06 Brittany validation
+PASS: all 15 R blocks executed; 34 PNG figures generated
+PASS: exactly departments 35 and 56, projected EPSG:2154
+PASS: 20 numeric single-band 25 m tiles with documented requests
+PASS: full mosaic 6166 rows x 8131 columns, resolution 25 m
+PASS: local analysis grid 400 x 400 at 25 m with a pre-crop halo
+PASS: slope/aspect in radians for shade; angle/direction in degrees
+PASS: D8 categories labelled rather than interpreted as continuous values
+PASS: exact 5% quantile thresholds retained; display labels formatted independently
+PASS: 1600 DEM-derived exercise points, seed 356
+PASS: all four interpolation rasters share a 500 x 500 grid at 10 m
+PASS: all four interpolation methods have 250000 valid cells
+PASS: IDW/nearest/window/linear TIN scores use common valid-cell support
+PASS: exported local DEM reopened, matching grid, maximum value difference 0 m
+PASS: static figure overview inspected; quantile legend and boxplot legend inspected at full size
+Input hashes and retrieval URLs: data/rasters/BDALTI_35_56_REQUESTS.csv
+Full browser rendering and live basemap tiles are not verified.
