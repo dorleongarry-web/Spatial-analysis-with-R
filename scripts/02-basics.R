@@ -55,7 +55,7 @@ plot(countries2, col = gdp_palette[as.integer(countries2$gdp_hab_cat)],
 legend("bottomleft", legend = labels, fill = gdp_palette, cex = 0.8, bg = "white")
 
 # 2.1.4 — Crop and project vector to Lambert-93
-france_met_wgs84 <- crop(france, ext(-5, 8, 40, 55))
+france_met_wgs84 <- crop(france, ext(-6, 10, 41, 52))
 france_met_l93 <- project(france_met_wgs84, "EPSG:2154")
 par(mfrow = c(1, 2))
 plot(france_met_wgs84, col = "pink", main = "WGS84 (EPSG:4326)")
