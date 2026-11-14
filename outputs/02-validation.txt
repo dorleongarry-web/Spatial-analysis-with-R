@@ -1,0 +1,6 @@
+PASS: R lesson and figure builder completed
+PASS: 241 source countries imported
+PASS: Lambert-93 GeoPackage readable
+PASS: masked GeoTIFF contains valid and masked cells
+Raster preview: 720 rows x 1440 columns
+Masked raster: 38 rows x 57 columns
