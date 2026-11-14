@@ -1,0 +1,10 @@
+  code             nom
+1   22   Côtes-d'Armor
+2   35 Ille-et-Vilaine
+3   56        Morbihan
+                                name authority code
+1 ETRS89-FRA [RGF93 v1] / Lambert-93      EPSG 2154
+                                                                                           area
+1 France - onshore and offshore, mainland and Corsica (France métropolitaine including Corsica)
+                      extent
+1 -9.86, 10.38, 41.15, 51.56

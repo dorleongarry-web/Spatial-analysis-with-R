@@ -1,0 +1,4 @@
+  department_code exercise_points
+1              22              17
+2              35              15
+3              56              19

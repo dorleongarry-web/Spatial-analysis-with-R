@@ -1,0 +1,7 @@
+                                operation features
+Intersect                       Intersect        2
+Erase                               Erase        2
+Crop                                 Crop        2
+Union                               Union        5
+Cover                               Cover        3
+Symmetric_difference Symmetric_difference        3

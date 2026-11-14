@@ -1,0 +1,2 @@
+  department_km2 buffer_km2 outer_ring_km2
+1       6838.181   13955.94       7117.758
