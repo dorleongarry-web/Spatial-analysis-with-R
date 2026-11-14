@@ -1,0 +1,8 @@
+  layer value  count
+1     1     2    500
+2     1     4 431616
+3     1     5  44920
+4     1     6   2339
+5     1     7    625
+  retained_cells total_cells
+1         480000      480000

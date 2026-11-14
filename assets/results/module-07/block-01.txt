@@ -1,0 +1,35 @@
+ [1] "B01" "B02" "B03" "B04" "B05" "B06" "B07" "B11" "B12" "B8A"
+class       : SpatRaster
+size        : 1000, 1200, 10  (nrow, ncol, nlyr)
+resolution  : 20, 20  (x, y)
+extent      : 547660, 571660, 5308840, 5328840  (xmin, xmax, ymin, ymax)
+coord. ref. : WGS 84 / UTM zone 30N (EPSG:32630)
+sources     : sentinel2_B01.tif
+              sentinel2_B02.tif
+              sentinel2_B03.tif
+              ... and 7 more sources
+names       :    B01,     B02,      B03,      B04,    B05,     B06, ...
+min values  : 0.0121, 0.01005, 0.009675, 0.007625, 0.0067, -0.0004, ...
+max values  :  0.333,  1.6028,   1.4958,   1.4634, 1.5978,  1.5728, ...
+   band spectral_name central_wavelength_nm native_resolution_m
+1   B01       coastal                   443                  60
+2   B02          blue                   490                  10
+3   B03         green                   560                  10
+4   B04           red                   665                  10
+5   B05       rededge                   704                  20
+6   B06       rededge                   740                  20
+7   B07       rededge                   783                  20
+8   B11        swir16                  1610                  20
+9   B12        swir22                  2190                  20
+10  B8A         nir08                   865                  20
+   prepared_resolution_m  preparation_method
+1                     20            bilinear
+2                     20        area average
+3                     20        area average
+4                     20        area average
+5                     20 aligned native grid
+6                     20 aligned native grid
+7                     20 aligned native grid
+8                     20 aligned native grid
+9                     20 aligned native grid
+10                    20 aligned native grid

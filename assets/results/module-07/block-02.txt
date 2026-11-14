@@ -1,0 +1,9 @@
+class       : SpatRaster
+size        : 600, 800, 10  (nrow, ncol, nlyr)
+resolution  : 20, 20  (x, y)
+extent      : 551660, 567660, 5312840, 5324840  (xmin, xmax, ymin, ymax)
+coord. ref. : WGS 84 / UTM zone 30N (EPSG:32630)
+source(s)   : memory
+names       :    B01,     B02,      B03,      B04,    B05,    B06, ...
+min values  : 0.0121,   0.011, 0.009675, 0.008475, 0.0068, 0.0028, ...
+max values  : 0.3083, 1.14535,  0.85815,   0.6587, 0.6367, 0.6022, ...

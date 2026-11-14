@@ -1,0 +1,12 @@
+$True_colour
+[1] "B04" "B03" "B02"
+
+$Vegetation_false_colour
+[1] "B8A" "B04" "B03"
+
+$SWIR_NIR_red
+[1] "B12" "B8A" "B04"
+
+$SWIR_comparison
+[1] "B12" "B11" "B02"
+
