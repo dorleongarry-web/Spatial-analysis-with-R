@@ -1,10 +1,13 @@
-hillshades <- list(
-  Northwest = shade(slope_rad, aspect_rad, angle = 45, direction = 315, normalize = TRUE),
-  Northeast = shade(slope_rad, aspect_rad, angle = 45, direction = 45, normalize = TRUE),
-  Southeast = shade(slope_rad, aspect_rad, angle = 45, direction = 135, normalize = TRUE)
-)
-for (view in names(hillshades)) {
-  plot(hillshades[[view]], col = gray.colors(100, start = 0, end = 1),
-       range = c(0, 255), main = paste(view, "illumination - brightness (0-255)"))
-}
-print(global(hillshades$Northwest, c("min", "max"), na.rm = TRUE))
+colour_table <- data.frame(from = quantile_breaks[-length(quantile_breaks)],
+                           to = quantile_breaks[-1],
+                           color = hcl.colors(length(quantile_breaks) - 1, "Spectral"))
+print(colour_table)
+plot(dem56, col = hcl.colors(20, "Spectral"), main = "Linear colour scale: elevation (m)")
+lines(dept56)
+class_matrix <- cbind(colour_table$from, colour_table$to, seq_len(nrow(colour_table)))
+colour_classes <- classify(dem56, class_matrix, include.lowest = TRUE)
+levels(colour_classes) <- data.frame(ID = seq_len(nrow(colour_table)),
+    interval = sprintf("%.1f to %.1f m", colour_table$from, colour_table$to))
+plot(colour_classes, col = colour_table$color, mar = c(3, 3, 3, 11),
+     plg = list(cex = 0.7), main = "Quantile intervals: elevation (m)")
+lines(dept56)

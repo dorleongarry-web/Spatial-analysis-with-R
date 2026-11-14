@@ -1,0 +1,13 @@
+dir.create("outputs/module-06/brittany", recursive = TRUE, showWarnings = FALSE)
+writeRaster(dem_resampled, "outputs/module-06/brittany/dem-35-56-250m.tif", overwrite = TRUE)
+writeRaster(dem2, "outputs/module-06/brittany/local-dem-25m.tif", overwrite = TRUE)
+writeRaster(rast(terrain_maps), "outputs/module-06/brittany/local-terrain.tif", overwrite = TRUE)
+writeRaster(rast(interpolations), "outputs/module-06/brittany/interpolations-10m-grid.tif", overwrite = TRUE)
+writeVector(elev, "outputs/module-06/brittany/derived-exercise-points.gpkg", overwrite = TRUE)
+write.csv(scores, "outputs/module-06/brittany/reconstruction-scores.csv", row.names = FALSE)
+saved <- rast("outputs/module-06/brittany/local-dem-25m.tif")
+stopifnot(compareGeom(saved, dem2))
+error <- global(abs(saved - dem2), "max", na.rm = TRUE)[1, 1]
+print(data.frame(max_export_difference_m = error))
+stopifnot(error < 0.0001)
+plot(saved, col = hcl.colors(60, "Terrain"), main = "Reopened local 25 m DEM: elevation (m)")

@@ -1,12 +1,9 @@
-coarse <- aggregate(dem, fact = 3, fun = "mean", na.rm = TRUE)
-nearest <- resample(coarse, dem, method = "near")
-bilinear <- resample(coarse, dem, method = "bilinear")
-print(data.frame(grid = c("Original", "Coarse"),
-                 rows = c(nrow(dem), nrow(coarse)),
-                 columns = c(ncol(dem), ncol(coarse))))
-for (view in c("Original", "Nearest", "Bilinear")) {
-  x <- switch(view, "Original" = dem, "Nearest" = nearest, "Bilinear" = bilinear)
-  plot(x, col = hcl.colors(60, "Terrain"), range = c(141, 547),
-       main = paste(view, "- elevation (m)"))
-}
-print(global(abs(bilinear - dem), "mean", na.rm = TRUE))
+z56 <- values(dem56, mat = FALSE)
+z56 <- z56[is.finite(z56)]
+linear_breaks <- seq(min(z56), max(z56), length.out = 21)
+palette <- hcl.colors(20, "Spectral")
+plot(dem56, col = palette, main = "Morbihan: linear elevation palette (m)")
+lines(dept56)
+hist(z56, breaks = linear_breaks, col = palette, xlab = "Elevation (m)",
+     ylab = "Number of cells", main = "Morbihan elevation: equal-width bins")
+print(quantile(z56, probs = c(0, 0.25, 0.5, 0.75, 1)))

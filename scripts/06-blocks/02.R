@@ -1,12 +1,14 @@
-tile_west <- crop(dem, ext(5.74, 6.20, 49.44, 50.20))
-tile_east <- crop(dem, ext(6.10, 6.54, 49.44, 50.20))
-joined_dem <- mosaic(tile_west, tile_east, fun = "mean")
-stopifnot(compareGeom(joined_dem, dem))
-error <- global(abs(joined_dem - dem), "max", na.rm = TRUE)
-print(error)
-stopifnot(error[1, 1] == 0)
-for (view in c("West tile", "East tile", "Mosaic")) {
-  x <- switch(view, "West tile" = tile_west, "East tile" = tile_east, "Mosaic" = joined_dem)
-  plot(x, ext = ext(dem), col = hcl.colors(60, "Terrain"),
-       range = c(141, 547), main = paste(view, "- elevation (m)"))
-}
+raster_files <- list.files("data/rasters/bdalti-35-56-25m", pattern = "\\.tif$", full.names = TRUE)
+stopifnot(length(raster_files) == 20)
+rasters <- lapply(raster_files, rast)
+stopifnot(all(vapply(rasters, function(x) same.crs(x, dept), logical(1))))
+rasters_collection <- sprc(rasters)
+dir.create("outputs/module-06/work", recursive = TRUE, showWarnings = FALSE)
+merged_raster <- mosaic(rasters_collection, fun = "mean",
+                       filename = "outputs/module-06/work/mosaic25.tif", overwrite = TRUE,
+                       wopt = list(gdal = "COMPRESS=DEFLATE"))
+names(merged_raster) <- "elevation"
+stopifnot(all(res(merged_raster) == 25))
+print(merged_raster)
+plot(merged_raster, col = hcl.colors(60, "Terrain"), main = "25 m mosaic: elevation (m)")
+lines(dept, col = "white", lwd = 1.2)
