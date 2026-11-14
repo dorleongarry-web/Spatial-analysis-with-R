@@ -1,0 +1,8 @@
+                                name authority code
+1 ETRS89-FRA [RGF93 v1] / Lambert-93      EPSG 2154
+                                                                                           area
+1 France - onshore and offshore, mainland and Corsica (France métropolitaine including Corsica)
+                      extent
+1 -9.86, 10.38, 41.15, 51.56
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.008   1.141   1.712   2.110   4.029   4.029 
